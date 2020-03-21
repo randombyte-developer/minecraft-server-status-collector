@@ -17,7 +17,6 @@ class Query:
     players_count: int
     players_max: int
     players: List[UUID]
-    mods: List[str]
 
     def timestamp_to_str(self) -> str:
         return self.timestamp.strftime(datetime_format)
@@ -32,5 +31,4 @@ class Query:
             "pc": self.players_count,
             "pm": self.players_max,
             "p": [str(uuid) for uuid in self.players],
-            "m": self.mods
         })
