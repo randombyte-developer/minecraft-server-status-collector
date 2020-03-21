@@ -1,4 +1,4 @@
-minecraft-collector
+~/minecraft-collector/
 0.0.0.0
 60
 10
