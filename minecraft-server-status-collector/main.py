@@ -30,6 +30,11 @@ while True:
                     print("Error while getting status!")
                     time.sleep(error_wait)
 
+            player_uuids = []
+            if status.players.sample is not None:
+                player_uuids = [UUID(player.id) for player in status.players.sample]
+
+
             query = Query(
                 timestamp=datetime.now(),
                 address=server_address,
@@ -37,7 +42,7 @@ while True:
                 description=str(status.description),
                 players_count=status.players.online,
                 players_max=status.players.max,
-                players=[UUID(player.id) for player in status.players.sample],
+                players=player_uuids,
                 version=status.version.name,
             )
 
